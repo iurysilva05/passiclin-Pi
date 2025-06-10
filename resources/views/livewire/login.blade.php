@@ -19,12 +19,12 @@
 
 
 
-                    <!-- Formulário de login -->
+                  
                     <form wire:submit="login">
                         @csrf
 
                         <div class="form-group">
-                            <label for="cpf" class="form-label">cpf</label>
+                            <label for="cpf" class="form-label">CPF</label>
                             <input type="cpf" wire:model="cpf" name="cpf" class="form-control @error('cpf') is-invalid @enderror" id="cpf" autofocus>
                             @error('cpf') <span class="error-text">{{$message}}</span>@enderror
                         </div>

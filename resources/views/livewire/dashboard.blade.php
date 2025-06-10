@@ -1,17 +1,17 @@
-<div>
+<div class="main-content">
 
 
 
-        <div class="card">
-            <h2 class="card-title">Bem-vindo ao PASSICLIN</h2>
-            <p>Olá <span id="welcome-name">{{auth()->user()->name}}</span>, aqui você pode acessar todos os seus exames, dados médicos e informações de consultas de forma rápida e segura.</p>
-        </div>
 
 
 
 
 
     <div>
+        <div class="card">
+            <h2 class="card-title">Bem-vindo ao PASSICLIN</h2>
+            <p>Olá <span id="welcome-name">{{auth()->user()->name}}</span>, aqui você pode acessar todos os seus exames, dados médicos e informações de consultas de forma rápida e segura.</p>
+        </div>
         <h2 class="card-title">Próximas Consultas</h2>
         <table class="table">
             <thead>
@@ -49,7 +49,7 @@
 
 
     <h2 class="card-title">Exames Recentes</h2>
-    <h1></h1>
+
     <div class="exams-grid">
         <div class="exam-card">
             <h3>Hemograma Completo</h3>

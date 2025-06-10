@@ -6,7 +6,7 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/clientes', function () { 
+Route::get('/clientes', function () {
     return view('clientes');
 })->name('clientes');
 
@@ -29,3 +29,14 @@ Route::get('/alunos', function () {
 Route::fallback(function(){
     return redirect()->route('login');
 });
+
+
+
+
+
+Route::get('/examesuser', function () {
+    return view('examesuser');
+})->name('examesuser');
+
+
+

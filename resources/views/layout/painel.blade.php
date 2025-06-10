@@ -18,30 +18,36 @@
             --dark-color: #2c3e50;
             --success-color: #27ae60;
         }
-        *{
+
+        * {
             margin: 0;
             padding: 0;
 
         }
-        body{
+
+        body {
             display: flex;
             justify-content: center;
-            align-items: center;
+            background-color: var(--light-color);
+
             height: 100vh;
         }
 
         .nav-menu {
 
+
+            position: fixed;
             top: 0;
+            bottom: 0;
             left: 0;
-            height: 100vh;
             width: 250px;
-            /* ou ajuste conforme desejar */
             background-color: var(--primary-color);
             padding: 2rem 1rem;
             overflow-y: auto;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+
+
         }
 
         .nav-menu ul {
@@ -161,18 +167,48 @@
 
 
         }
-        header{
+
+        header {
             margin-bottom: 100px;
 
         }
-        
+
+        .main-content {
+            margin-left: 250px;
+            /* mesmo valor do width do nav-menu */
+            padding: 2rem;
+            box-sizing: border-box;
+        }
 
 
+         .sidebar {
+            width: 300px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
 
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: var(--light-color);
+            display: flex;
+            align-items: center;
+        }
 
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
     </style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet" />
+
 
 </head>
 

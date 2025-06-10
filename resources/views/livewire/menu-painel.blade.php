@@ -28,12 +28,22 @@
 
     <div class="nav-menu">
 
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i> PASSICLIN
+        </div>
+
 
 
         <ul>
             <li><a href="/dashboard" class="active"><i class="bi bi-house-door-fill"></i>Exames Recentes</a></li>
             <li class="list-group-item"><a href="{{route('alunos')}}"><i class="bi bi-person"></i>Meus Dados</li></a>
-            <li><a href="/clientes"><i class="bi bi-people-fill"></i> Clientes</a></li>
+            <li class="list-group-item">
+                <a href="{{ route('examesuser') }}">
+                    <i class="fas fa-file-medical"></i> Meus Exames
+                </a>
+            </li>
+
+            <li><a href="/exames-user" class="active"><i class="bi bi-people-fill"></i>Meus Exames</a></li>
             <li><a href="/agendamentos"><i class="bi bi-calendar-check-fill"></i> Agendamentos</a></li>
             <li><a href="/configuracoes"><i class="bi bi-gear-fill"></i> Configurações</a></li>
         </ul>
@@ -43,8 +53,6 @@
         </div>
 
     </div>
-
-
 
 </div>
 </div>

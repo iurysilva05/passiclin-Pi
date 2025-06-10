@@ -26,7 +26,7 @@
             }
 
             body {
-                background-color: #f5f7fa;
+                background-color:rgb(20, 68, 141);
                 color: var(--dark-color);
             }
 
@@ -35,7 +35,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background: #f4f7fa;
+                background-color:rgb(20, 68, 141);
                 padding: 20px;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
@@ -157,7 +157,7 @@
 
     @livewireStyles
 </head>
-<body class="bg-light">
+<body >
 
     <div class="container">
 
