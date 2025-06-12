@@ -36,7 +36,7 @@
 
         <ul>
             <li><a href="/dashboard" class="active"><i class="bi bi-house-door-fill"></i>Exames Recentes</a></li>
-            <li class="list-group-item"><a href="{{route('alunos')}}"><i class="bi bi-person"></i>Meus Dados</li></a>
+            <li class="list-group-item"><a href="{{route('paciente')}}"><i class="bi bi-person"></i>Meus Dados</li></a>
             <li class="list-group-item">
                 <a href="{{ route('examesuser') }}">
                     <i class="fas fa-file-medical"></i> Meus Exames

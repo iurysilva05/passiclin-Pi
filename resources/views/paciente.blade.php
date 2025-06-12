@@ -1,5 +1,5 @@
 @extends('layout.painel')
 
 @section('content')
-@livewire('cadastro-alunos')
+@livewire('dados-paciente')
 @endsection

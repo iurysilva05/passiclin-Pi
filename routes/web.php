@@ -39,4 +39,9 @@ Route::get('/examesuser', function () {
 })->name('examesuser');
 
 
+Route::get('/paciente', function () {
+    return view('paciente');
+})->name('paciente');
+
+
 
