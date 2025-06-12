@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -41,7 +42,12 @@ Route::get('/examesuser', function () {
 
 Route::get('/paciente', function () {
     return view('paciente');
-})->name('paciente');
+})->name('paciente')->middleware('auth');
+
+
+
+
+
 
 
 
