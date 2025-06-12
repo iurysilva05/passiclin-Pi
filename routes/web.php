@@ -41,7 +41,7 @@ Route::get('/examesuser', function () {
 
 Route::get('/paciente', function () {
     return view('paciente');
-})->name('paciente');
+})->name('paciente')->middleware('auth');
 
 
 
