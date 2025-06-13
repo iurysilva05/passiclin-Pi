@@ -7,12 +7,13 @@ use App\Models\Paciente;
 
 class DadosPaciente extends Component
 {
-    public $pacienteId = null;
+     public $pacienteId = null; // Armazena o ID do paciente quando em modo de edição (null para cadastro novo)
     public $name;
     public $telefone;
     public $email;
     public $cep;
-    public $isEditing = false;
+    public $cpf;
+    public $isEditing = false; //  Flag que indica se estamos editando (true) ou cadastrando (false)
 
     protected $listeners = ['editPaciente' => 'loadPaciente'];
 
@@ -30,6 +31,7 @@ class DadosPaciente extends Component
             'telefone' => 'required|string|max:20',
             'email' => 'required|email|max:100|unique:pacientes,email,'.$this->pacienteId,
             'cep' => 'required|string|max:15',
+            'cpf' => 'required|string|max:11',
         ];
     }
 
@@ -42,6 +44,7 @@ class DadosPaciente extends Component
         $this->telefone = $paciente->telefone;
         $this->email = $paciente->email;
         $this->cep = $paciente->cep;
+        $this->cpf = $paciente->cpf;
         $this->isEditing = true;
     }
 

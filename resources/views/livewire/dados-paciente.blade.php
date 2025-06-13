@@ -3,10 +3,10 @@
         <h2 class="card-title">{{ $isEditing ? 'Editar Paciente' : 'Cadastro de Pacientes' }}</h2>
 
         @if (session()->has('message'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('message') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         @endif
 
         <form wire:submit.prevent="savePaciente">
@@ -19,7 +19,7 @@
             <div class="mb-3">
                 <label for="telefone" class="form-label">Telefone</label>
                 <input type="text" class="form-control" id="telefone" wire:model="telefone"
-                       x-mask="(99) 99999-9999">
+                    x-mask="(99) 99999-9999">
                 @error('telefone') <small class="text-danger">{{ $message }}</small> @enderror
             </div>
 
@@ -38,11 +38,17 @@
                 @error('cep') <small class="text-danger">{{ $message }}</small> @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF</label>
+                <input type="text" wire:model="cpf" name="cpf" class="form-control" id="cpf">
+                @error('cpf') <span class="text text-danger">{{$message}}</span> @enderror
+            </div>
+
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 @if($isEditing)
-                    <button type="button" wire:click="resetForm" class="btn btn-secondary me-md-2">
-                        Cancelar
-                    </button>
+                <button type="button" wire:click="resetForm" class="btn btn-secondary me-md-2">
+                    Cancelar
+                </button>
                 @endif
                 <button type="submit" class="btn btn-primary">
                     {{ $isEditing ? 'Atualizar' : 'Cadastrar' }}

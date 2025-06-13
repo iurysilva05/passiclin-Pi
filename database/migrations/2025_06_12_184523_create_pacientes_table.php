@@ -15,15 +15,21 @@ return new class extends Migration
             $table->id();
 
             $table->string('name', 100);
-            $table->string('telefone', 15);
-            $table->string('email', 100);
-            $table->string('cep', 15);
+            $table->string('telefone')->nullable();
+           $table->string('email')->nullable();
+           $table->string('cep')->nullable();
+            $table->unsignedBigInteger('id_user')->nullable(); // se for vincular ao usuário
+            $table->string('cpf')->unique();
+
+
+
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
-        dd('$name');
+
     }
 
 
@@ -31,6 +37,11 @@ return new class extends Migration
 
     public function down(): void
     {
+         Schema::table('pacientes', function (Blueprint $table) {
+            $table->dropColumn('cpf'); // Remove a coluna se precisar reverter
+        });
         Schema::dropIfExists('pacientes');
+         Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('sessions');
     }
 };

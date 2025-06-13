@@ -50,4 +50,3 @@ Route::get('/paciente', function () {
 
 
 
-

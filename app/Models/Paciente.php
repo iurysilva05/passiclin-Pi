@@ -14,6 +14,13 @@ class Paciente extends Model
         'email',
         'cep',
         'telefone',
+        'cpf',
+        'id_user',
 
     ];
+
+    public static $rules = [
+    'cpf' => 'required|string|size:11|unique:pacientes',
+    ];
+
 }

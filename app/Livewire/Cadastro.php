@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
+use App\Models\Paciente;
 
 class Cadastro extends Component
 {
@@ -12,33 +13,32 @@ class Cadastro extends Component
     public $cpf;
     public $password;
 
-
-
     public function cadastrar()
     {
         $this->validate([
             'name' => 'required',
-            'cpf' => 'required|unique:users,cpf',
+            'cpf' => 'required|unique:pacientes,cpf', // note o nome da tabela em minúsculo
             'password' => 'required',
         ]);
 
+        // Limpar CPF
+        $cpfLimpo = str_replace(['-', '.'], '', $this->cpf);
 
-
-        $this->cpf = str_replace("-","", $this->cpf);
-        $this->cpf = str_replace(".", "", $this->cpf);
-
-
-
-
-
-        User::create([
+        // Cria o usuário
+        $user = User::create([
             'name' => $this->name,
-            'cpf' => $this->cpf,   // ESSENCIAL
             'password' => Hash::make($this->password),
+            'cpf' => $this->cpf,
+        ]);
+
+        // Cria o paciente relacionado ao usuário
+        Paciente::create([
+            'name' => $this->name,
+            'cpf' => $cpfLimpo,
+            'id_user' => $user->id, // se houver relacionamento com o usuário
         ]);
 
         $this->reset();
-
         $this->redirect('/login');
     }
 
@@ -47,5 +47,3 @@ class Cadastro extends Component
         return view('livewire.cadastro');
     }
 }
-
-
