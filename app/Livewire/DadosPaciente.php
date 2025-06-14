@@ -3,75 +3,63 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Paciente;
 
 class DadosPaciente extends Component
 {
-     public $pacienteId = null; // Armazena o ID do paciente quando em modo de edição (null para cadastro novo)
     public $name;
     public $telefone;
     public $email;
     public $cep;
     public $cpf;
-    public $isEditing = false; //  Flag que indica se estamos editando (true) ou cadastrando (false)
 
-    protected $listeners = ['editPaciente' => 'loadPaciente'];
-
-    public function mount($pacienteId = null)
-    {
-        if ($pacienteId) {
-            $this->loadPaciente($pacienteId);
-        }
-    }
-
-    public function rules()
+    protected function rules()
     {
         return [
-            'name' => 'required|string|max:100',
-            'telefone' => 'required|string|max:20',
-            'email' => 'required|email|max:100|unique:pacientes,email,'.$this->pacienteId,
-            'cep' => 'required|string|max:15',
-            'cpf' => 'required|string|max:11',
+            'name' => 'nullable|string|max:100',
+            'telefone' => 'nullable|string|max:20',
+            'email' => 'nullable|email|max:100|unique:pacientes,email,'.Auth::id(),
+            'cep' => 'nullable|string|max:9',
+            'cpf' => 'nullable|string|max:14|unique:pacientes,cpf,'.Auth::id(),
         ];
     }
 
-    public function loadPaciente($id)
+    public function mount()
     {
-        $paciente = Paciente::findOrFail($id);
-
-        $this->pacienteId = $id;
-        $this->name = $paciente->name;
-        $this->telefone = $paciente->telefone;
-        $this->email = $paciente->email;
-        $this->cep = $paciente->cep;
-        $this->cpf = $paciente->cpf;
-        $this->isEditing = true;
+        $this->loadPaciente();
     }
 
-    public function resetForm()
+    public function loadPaciente()
     {
-        $this->reset();
-        $this->resetErrorBag();
+        $paciente = Auth::user();
+
+        $this->name = $paciente->name ?? '';
+        $this->telefone = $paciente->telefone ?? '';
+        $this->email = $paciente->email ?? '';
+        $this->cep = $paciente->cep ?? '';
+        $this->cpf = $paciente->cpf ?? '';
     }
 
     public function savePaciente()
     {
         $validatedData = $this->validate();
 
-        if ($this->isEditing) {
-            $paciente = Paciente::findOrFail($this->pacienteId);
-            $paciente->update($validatedData);
-            $message = 'Paciente atualizado com sucesso!';
+        // Filtra apenas os campos que foram preenchidos
+        $dataToUpdate = array_filter($validatedData, function($value) {
+            return !empty($value);
+        });
+
+        if (!empty($dataToUpdate)) {
+            /** @var \App\Models\Paciente $paciente */
+            $paciente = Auth::user();
+            $paciente->update($dataToUpdate);
+
+            session()->flash('success', 'Dados atualizados com sucesso!');
+            $this->loadPaciente();
         } else {
-            Paciente::create($validatedData);
-            $message = 'Paciente cadastrado com sucesso!';
+            session()->flash('info', 'Nenhum dado foi alterado.');
         }
-
-        session()->flash('message', $message);
-        $this->resetForm();
-
-        // Emite evento para atualizar listagem se necessário
-        $this->dispatch('pacienteSaved');
     }
 
     public function render()

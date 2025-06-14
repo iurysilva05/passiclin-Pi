@@ -13,33 +13,35 @@ class Cadastro extends Component
     public $cpf;
     public $password;
 
+    protected $rules = [
+        'name' => 'required|string|max:255',
+        'cpf' => 'required|string|max:14|unique:pacientes,cpf',
+        'password' => 'required|string|min:8',
+    ];
+
     public function cadastrar()
     {
-        $this->validate([
-            'name' => 'required',
-            'cpf' => 'required|unique:pacientes,cpf', // note o nome da tabela em minúsculo
-            'password' => 'required',
-        ]);
+        $this->validate();
 
-        // Limpar CPF
-        $cpfLimpo = str_replace(['-', '.'], '', $this->cpf);
+        // Remove formatação do CPF para armazenamento
+        $cpfLimpo = preg_replace('/[^0-9]/', '', $this->cpf);
 
         // Cria o usuário
         $user = User::create([
             'name' => $this->name,
             'password' => Hash::make($this->password),
-            'cpf' => $this->cpf,
+            'cpf' => $cpfLimpo, // Armazena sem formatação também no User
         ]);
 
         // Cria o paciente relacionado ao usuário
         Paciente::create([
             'name' => $this->name,
-            'cpf' => $cpfLimpo,
-            'id_user' => $user->id, // se houver relacionamento com o usuário
+            'cpf' => $cpfLimpo, // Armazena sem formatação
+            'user_id' => $user->id, // Padronizando para user_id (mais comum)
         ]);
 
         $this->reset();
-        $this->redirect('/login');
+        return redirect()->to('/login')->with('success', 'Cadastro realizado com sucesso!');
     }
 
     public function render()

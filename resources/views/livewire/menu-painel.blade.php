@@ -43,9 +43,9 @@
                 </a>
             </li>
 
-            <li><a href="/exames-user" class="active"><i class="bi bi-people-fill"></i>Meus Exames</a></li>
+            <!-- <li><a href="/exames-user" class="active"><i class="bi bi-people-fill"></i>Meus Exames</a></li>
             <li><a href="/agendamentos"><i class="bi bi-calendar-check-fill"></i> Agendamentos</a></li>
-            <li><a href="/configuracoes"><i class="bi bi-gear-fill"></i> Configurações</a></li>
+            <li><a href="/configuracoes"><i class="bi bi-gear-fill"></i> Configurações</a></li> -->
         </ul>
 
         <div class="logout-btn-container">

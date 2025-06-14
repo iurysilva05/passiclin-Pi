@@ -4,8 +4,9 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Paciente extends Model
+class Paciente extends Authenticatable
 {
     protected $table = 'pacientes';
 
@@ -16,7 +17,13 @@ class Paciente extends Model
         'telefone',
         'cpf',
         'id_user',
+        'password'
 
+    ];
+
+     protected $hidden = [
+        'password',
+        'remember_token',
     ];
 
     public static $rules = [

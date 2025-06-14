@@ -44,6 +44,10 @@ Route::get('/paciente', function () {
     return view('paciente');
 })->name('paciente')->middleware('auth');
 
+Route::middleware('auth:paciente')->group(function () {
+    Route::get('/meus-dados', \App\Livewire\DadosPaciente::class)->name('paciente.dados');
+});
+
 
 
 
