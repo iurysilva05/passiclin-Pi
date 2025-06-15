@@ -39,7 +39,7 @@
             <li class="list-group-item"><a href="{{route('paciente')}}"><i class="bi bi-person"></i>Meus Dados</li></a>
             <li class="list-group-item">
                 <a href="{{ route('examesuser') }}">
-                    <i class="fas fa-file-medical"></i> Meus Exames
+                    <i class="fas fa-file-medical"></i> Exames/Consultas
                 </a>
             </li>
 

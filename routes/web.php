@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -47,7 +48,6 @@ Route::get('/paciente', function () {
 Route::middleware('auth:paciente')->group(function () {
     Route::get('/meus-dados', \App\Livewire\DadosPaciente::class)->name('paciente.dados');
 });
-
 
 
 
