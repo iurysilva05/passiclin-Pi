@@ -42,11 +42,7 @@
                     <i class="fas fa-file-medical"></i> Exames/Consultas
                 </a>
             </li>
-            <li class="list-group-item">
-                <a href="{{ route('listexames') }}">
-                    <i class="fas fa-file-medical"></i> Exames/Consultas
-                </a>
-            </li>
+           
 
             <!-- <li><a href="/exames-user" class="active"><i class="bi bi-people-fill"></i>Meus Exames</a></li>
             <li><a href="/agendamentos"><i class="bi bi-calendar-check-fill"></i> Agendamentos</a></li>

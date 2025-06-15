@@ -22,7 +22,7 @@
             <td>Lab. Diagnóstico</td>
             <td><span class="badge badge-success">Disponível</span></td>
             <td>
-              <a href="/baixar-hemograma" class="btn btn-primary btn-sm">Baixar</a>
+              <a href="/baixar-hemograma"class="btn btn-primary btn-sm">Baixar</a>
                 <a href="https://wa.me/558195404147?text=Olá,%20gostaria%20de%20receber%20o%20resultado%20do%20meu%20Hemograma%20Completo%20realizado%20em%2010/05/2023.%20Poderia%20me%20enviar%20por%20favor?"
                    class="btn btn-success btn-sm"
                    target="_blank">WhatsApp</a>

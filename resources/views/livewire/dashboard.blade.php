@@ -55,7 +55,7 @@
             <h3>Hemograma Completo</h3>
             <p>Análise de sangue para verificar saúde geral</p>
             <div class="exam-date">Realizado em: 10/05/2023</div>
-            <a href="#" class="download-btn" onclick="downloadExam('hemograma')">
+            <a href="/baixar-hemograma" class="download-btn" onclick="downloadExam('hemograma')">
                 <i class="fas fa-download"></i> Baixar Exame
             </a>
         </div>

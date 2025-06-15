@@ -1,6 +1,5 @@
 <div>
-   <a href="/baixar-hemograma" class="btn btn-primary btn-sm">Baixar</a>
-   <a href="{{ route('examesuser') }}" class="btn btn-primary btn-sm">Voltar</a>
+ 
 
     <div class="header">
         <h1>Laboratório de Análises Clínicas</h1>
@@ -13,15 +12,29 @@
         <table>
             <tr>
                 <th>Nome:  </th>
-                <td>João da Silva</td>
+                <td>{{ Auth::user()->name }}</td>
                 <th>Data de Nascimento:</th>
-                <td>15/03/1985</td>
+                <td>{{ Auth::user()->data_nascimento ? Auth::user()->data_nascimento->format('d/m/Y') : 'Não informado' }}</td>
             </tr>
             <tr>
                 <th>Idade:</th>
-                <td>38 anos</td>
+                <td>{{ Auth::user()->data_nascimento ? Carbon\Carbon::parse(Auth::user()->data_nascimento)->age . ' anos' : 'Não informado' }}</td>
                 <th>Sexo:</th>
-                <td>Masculino</td>
+                <td>
+                    @switch(Auth::user()->sexo)
+                        @case('M')
+                            Masculino
+                            @break
+                        @case('F')
+                            Feminino
+                            @break
+                        @case('O')
+                            Outro
+                            @break
+                        @default
+                            Não informado
+                    @endswitch
+                </td>
             </tr>
             <tr>
                 <th>Médico Solicitante:</th>
@@ -31,9 +44,9 @@
             </tr>
             <tr>
                 <th>Data da Coleta:</th>
-                <td>10/05/2023 - 08:30</td>
+                <td>{{ now()->format('d/m/Y - H:i') }}</td>
                 <th>Data do Resultado:</th>
-                <td>11/05/2023 - 14:15</td>
+                <td>{{ now()->format('d/m/Y - H:i') }}</td>
             </tr>
         </table>
     </div>
@@ -180,7 +193,7 @@
         </table>
 
         <div class="reference">
-            <p><strong>Observações:</strong> Todos os parâmetros estão dentro dos valores de referência para adultos do sexo masculino.</p>
+            <p><strong>Observações:</strong> Todos os parâmetros estão dentro dos valores de referência para adultos do sexo {{ Auth::user()->sexo == 'F' ? 'feminino' : 'masculino' }}.</p>
         </div>
     </div>
 
