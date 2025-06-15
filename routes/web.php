@@ -1,6 +1,10 @@
 <?php
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
+
+use Illuminate\Support\Facades\App; // Importe a fachada App
+use App\Http\Livewire\GerarExamePdf;
 
 
 
@@ -41,6 +45,11 @@ Route::get('/examesuser', function () {
 })->name('examesuser');
 
 
+Route::get('/listexames', function () {
+    return view('listexames');
+})->name('listexames');
+
+
 Route::get('/paciente', function () {
     return view('paciente');
 })->name('paciente')->middleware('auth');
@@ -49,6 +58,10 @@ Route::middleware('auth:paciente')->group(function () {
     Route::get('/meus-dados', \App\Livewire\DadosPaciente::class)->name('paciente.dados');
 });
 
+Route::get('/baixar-hemograma', function () {
+    $pdf = Pdf::loadView('listexames');
+    return $pdf->download('Hemograma_Completo_Joao_Silva_10-05-2023.pdf');
+});
 
 
 

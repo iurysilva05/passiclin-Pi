@@ -7,7 +7,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "barryvdh/laravel-dompdf": "^3.1",
+        "barryvdh/laravel-dompdf": "*",
+        "dompdf/dompdf": "*",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6"
@@ -29,6 +30,11 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
+
+
+    
+
+
     },
     "autoload-dev": {
         "psr-4": {
@@ -76,4 +82,6 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true
+
+
 }
