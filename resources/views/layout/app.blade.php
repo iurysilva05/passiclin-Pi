@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     @livewireStyles
     <style>
-         :root {
+        :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
             --accent-color: #e74c3c;
@@ -370,6 +370,11 @@
                 display: none;
             }
         }
+
+        #sobre,#comofunciona{
+             text-decoration: none; /* Remove o sublinhado */
+            color: inherit; /* Herda a cor do elemento pai */
+            }
     </style>
 </head>
 
@@ -377,22 +382,27 @@
 <body>
 
 
+   <div>
 
-    <div class="container header-container">
-        <div class="logo">
-            <i class="fas fa-heartbeat"></i> PASSICLIN
+
+<header>
+
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i> PASSICLIN
+            </div>
+            <nav>
+                <ul>
+
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#comofunciona">Como Funciona</a></li>
+                    <li><a href="#">Contato</a></li>
+
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Como Funciona</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#" class="btn btn-outline">Acessar Sistema</a></li>
-            </ul>
-        </nav>
-    </div>
-    </header>
+</header>
+
 
     <!-- Hero Section -->
     <section class="hero">
@@ -400,63 +410,67 @@
             <h1>Seus exames médicos de forma simples e segura</h1>
             <p>Acesse seus resultados de exames a qualquer momento, de qualquer lugar, com toda a privacidade que sua saúde merece.</p>
             <!-- <a href="#" class="btn">Acessar Meus Exames</a> -->
-              <a class="btn{{ request()->routeIs('login') ? 'active' : ''}}"  @if(request()->routeIs('login')) aria-current="page" @endif href="{{route('login')}}"><i> Acessar Meus Exames</i> </a>
+            <a class="btn{{ request()->routeIs('login') ? 'active' : ''}}" @if(request()->routeIs('login')) aria-current="page" @endif href="{{route('login')}}"><i> Acessar Meus Exames</i> </a>
         </div>
     </section>
 
     <!-- Features -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Por que usar o PASSICLIN?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
+    <a href="#" id="sobre">
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Por que usar o PASSICLIN?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Segurança e Privacidade</h3>
+                        <p>Seus dados médicos protegidos com criptografia de última geração e acesso restrito.</p>
                     </div>
-                    <h3>Segurança e Privacidade</h3>
-                    <p>Seus dados médicos protegidos com criptografia de última geração e acesso restrito.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Acesso em Qualquer Lugar</h3>
+                        <p>Consulte seus exames de qualquer dispositivo, a qualquer momento.</p>
                     </div>
-                    <h3>Acesso em Qualquer Lugar</h3>
-                    <p>Consulte seus exames de qualquer dispositivo, a qualquer momento.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-file-pdf"></i>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3>Resultados Digitais</h3>
+                        <p>Receba seus exames em formato digital e evite perdas de documentos físicos.</p>
                     </div>
-                    <h3>Resultados Digitais</h3>
-                    <p>Receba seus exames em formato digital e evite perdas de documentos físicos.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </a>
 
     <!-- How it works -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">Como Funciona</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Cadastro Simples</h3>
-                    <p>Registre-se com seu CPF e número de celular para criar sua conta.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Confirmação de Identidade</h3>
-                    <p>Valide sua conta através de um código enviado por SMS.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Acesso aos Exames</h3>
-                    <p>Visualize e baixe todos os seus exames em um só lugar.</p>
+    <a href="#" id="comofunciona">
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">Como Funciona</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Cadastro Simples</h3>
+                        <p>Registre-se com seu CPF e número de celular para criar sua conta.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Confirmação de Identidade</h3>
+                        <p>Valide sua conta através de um código enviado por SMS.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Acesso aos Exames</h3>
+                        <p>Visualize e baixe todos os seus exames em um só lugar.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </a>
 
     <!-- Testimonials -->
     <section class="testimonials">
@@ -503,7 +517,7 @@
             <h2>Pronto para ter acesso aos seus exames?</h2>
             <p>Junte-se a milhares de pacientes que já simplificaram o acesso aos seus resultados médicos.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn">Acessar Meus Exames</a>
+               <a class="btn{{ request()->routeIs('login') ? 'active' : ''}}" @if(request()->routeIs('login')) aria-current="page" @endif href="{{route('login')}}"><i> Acessar Meus Exames</i> </a>
                 <a href="#" class="btn btn-outline">Saiba Mais</a>
             </div>
         </div>
@@ -554,15 +568,16 @@
             </div>
         </div>
     </footer>
+</div>
 
 
 
 
 
 
-    <div class="footer container-fluid text-center">
-        &copy; Todos os direitos reservados {{date('Y')}}
-    </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     @livewireScripts
 </body>

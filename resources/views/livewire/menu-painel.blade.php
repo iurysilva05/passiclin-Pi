@@ -42,7 +42,7 @@
                     <i class="fas fa-file-medical"></i> Exames/Consultas
                 </a>
             </li>
-           
+
 
             <!-- <li><a href="/exames-user" class="active"><i class="bi bi-people-fill"></i>Meus Exames</a></li>
             <li><a href="/agendamentos"><i class="bi bi-calendar-check-fill"></i> Agendamentos</a></li>
@@ -50,7 +50,7 @@
         </ul>
 
         <div class="logout-btn-container">
-            <a href="/logout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i> Sair</a>
+            <a href="{{route('home')}}" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i> Sair</a>
         </div>
 
     </div>

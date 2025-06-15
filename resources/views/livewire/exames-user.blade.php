@@ -35,7 +35,7 @@
             <td>Hospital Vida</td>
             <td><span class="badge badge-success">Disponível</span></td>
             <td>
-                <a href="#" class="btn btn-primary btn-sm" onclick="downloadExam('eletro')">Baixar</a>
+               <a href="/baixar-cardiograma"class="btn btn-primary btn-sm">Baixar</a>
                 <a href="https://wa.me/558195404147?text=Olá,%20gostaria%20de%20receber%20o%20resultado%20do%20meu%20Eletrocardiograma%20realizado%20em%2005/05/2023.%20Poderia%20me%20enviar%20por%20favor?"
                    class="btn btn-success btn-sm"
                    target="_blank">WhatsApp</a>
