@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('telefone')->nullable();
            $table->string('email')->nullable();
            $table->string('cep')->nullable();
-            $table->unsignedBigInteger('id_user')->nullable(); // se for vincular ao usuário
+            $table->unsignedBigInteger('id_user')->nullable(); 
             $table->string('cpf')->unique();
 
 

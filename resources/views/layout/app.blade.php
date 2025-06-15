@@ -375,7 +375,51 @@
              text-decoration: none; /* Remove o sublinhado */
             color: inherit; /* Herda a cor do elemento pai */
             }
+                .password-input-group {
+        position: relative;
+    }
+
+    .toggle-password {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #3498db;
+        padding: 5px;
+        font-size: 1rem;
+        z-index: 2;
+    }
+
+    .toggle-password:hover {
+        color: #2980b9;
+    }
+
+    .forgot-password {
+        text-align: right;
+        margin-top: 8px;
+        margin-bottom: 15px;
+    }
+
+    .forgot-password a {
+        color: #6c757d;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .forgot-password a:hover {
+        text-decoration: underline;
+        color: #3498db;
+    }
+
+    /* Ajuste para o input de senha ter espaço para o ícone */
+    .password-input-group .form-control {
+        padding-right: 40px;
+    }
     </style>
+    
 </head>
 
 
@@ -517,7 +561,7 @@
             <h2>Pronto para ter acesso aos seus exames?</h2>
             <p>Junte-se a milhares de pacientes que já simplificaram o acesso aos seus resultados médicos.</p>
             <div class="cta-buttons">
-               <a class="btn{{ request()->routeIs('login') ? 'active' : ''}}" @if(request()->routeIs('login')) aria-current="page" @endif href="{{route('login')}}"><i> Acessar Meus Exames</i> </a>
+                <a href="#" class="btn">Acessar Meus Exames</a>
                 <a href="#" class="btn btn-outline">Saiba Mais</a>
             </div>
         </div>
