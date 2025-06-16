@@ -46,6 +46,11 @@ Route::get('/examesuser', function () {
 })->name('examesuser');
 
 
+Route::get('/contato', function () {
+    return view('contato');
+})->name('contato');
+
+
 
 
 Route::get('/listexames', function () {

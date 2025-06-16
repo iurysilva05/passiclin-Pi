@@ -440,7 +440,7 @@
 
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#comofunciona">Como Funciona</a></li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="{{ route('contato') }}">Contato</a></li>
 
                 </ul>
             </nav>
@@ -586,7 +586,7 @@
                         <li><a href="#">Início</a></li>
                         <li><a href="#">Sobre</a></li>
                         <li><a href="#">Como Funciona</a></li>
-                        <li><a href="#">Contato</a></li>
+                        <li><a href="{{ route('contato') }}">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">

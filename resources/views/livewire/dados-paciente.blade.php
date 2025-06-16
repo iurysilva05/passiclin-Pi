@@ -1,23 +1,23 @@
 <div>
-    @if (session('success'))
-        <div x-data="{ show: true }"
-             x-show="show"
-             x-init="setTimeout(() => show = false, 5000)"
-             class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if (session('info'))
-        <div x-data="{ show: true }"
-             x-show="show"
-             x-init="setTimeout(() => show = false, 5000)"
-             class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded mb-4">
-            {{ session('info') }}
-        </div>
-    @endif
-
+    
     <div class="main-content">
+        @if (session('success'))
+            <div x-data="{ show: true }"
+                 x-show="show"
+                 x-init="setTimeout(() => show = false, 5000)"
+                 class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
+    
+        @if (session('info'))
+            <div x-data="{ show: true }"
+                 x-show="show"
+                 x-init="setTimeout(() => show = false, 5000)"
+                 class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded mb-4">
+                {{ session('info') }}
+            </div>
+        @endif
         <div>
             <h2 class="card-title">Meus Dados</h2>
             <p>Mantenha seus dados atualizados para melhor atendimento. Após preencher, você pode gerar um PDF com todas as informações.</p>
@@ -153,7 +153,7 @@
 
                 <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
                     <button type="submit" class="btn btn-primary">Salvar Dados</button>
-                    <button type="button" class="btn btn-success" onclick="generatePatientPDF()">Gerar PDF</button>
+                    
                     
                 </div>
             </form>
